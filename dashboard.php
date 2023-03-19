@@ -25,20 +25,46 @@ $row = mysqli_fetch_assoc($result);
 <head>
 	<title>Dashboard</title>
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://kit.fontawesome.com/fe8e9cfefb.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-<p>Welcome, <?php echo $_SESSION['username']; ?></p>
-    <p>Your email address: <?php echo $_SESSION['usermail']; ?></p>
-    <a href="php/user/edit_profile.php?id=<?php echo $_SESSION['id']; ?>">Edit Profile</a>  
-    <a href="php/user/logout.php">Logout</a>
    
+ <div class="wrapper">
+  <nav class="sidebar">
+    <div class="profile">
+      <img src="style/img/profile.png" alt="Your profile">
+      <p><?php echo $_SESSION['username']; ?></p>
+      <p><?php echo $_SESSION['usermail']; ?></p>
+    </div>
+    <ul>
+      <li>
+        <a href="#">Dashboard</a>
+      </li>
+      <li>
+        <a href="php/user/edit_profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
+      </li>
+      <li>
+        <a href="php/user/logout.php">Logout</a></li>
+          <li>
+				<a href="#">About</a>
+				<ul>
+					<li><a href="#">Our Story</a></li>
+					<li><a href="#">Meet the Team</a></li>
+				</ul>
+			</li>
+    </ul>
     <?php if ($_SESSION['role'] === 'admin'): ?>
         <a href="php/user/delete_user.php">Delete</a>
         <a href="php/user/add_user.php">Add User</a>
         <a href="php/user/user_accounts.php">User Accounts</a>
-       
     <?php endif; ?>
+  </nav>
+  <main class="content">
+    <div class="pagecontent">trait_exists</div>
+    <p>test</p>
+  </main>
+</div>
 
 
 
