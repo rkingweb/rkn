@@ -25,11 +25,8 @@ $row = mysqli_fetch_assoc($result);
 <head>
 	<title>Dashboard</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="https://kit.fontawesome.com/fe8e9cfefb.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
-   
  <div class="wrapper">
   <nav class="sidebar">
     <div class="profile">
@@ -48,7 +45,7 @@ $row = mysqli_fetch_assoc($result);
         <a href="php/user/logout.php">Logout</a></li>
           <li>
 				<a href="#">About</a>
-				<ul>
+				<ul class="submenu">
 					<li><a href="#">Our Story</a></li>
 					<li><a href="#">Meet the Team</a></li>
 				</ul>
@@ -63,6 +60,7 @@ $row = mysqli_fetch_assoc($result);
   <main class="content">
     <div class="pagecontent">trait_exists</div>
     <p>test</p>
+    <script src="style/style.js"></script>
   </main>
 </div>
 

@@ -64,8 +64,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Edit User Info</title>
+    <link rel="stylesheet" href="../../style/style.css" class="stylesheet">
 </head>
 <body>
+
+
+<div class="wrapper">
+  <nav class="sidebar">
+    <div class="profile">
+      <img src="../../style/img/profile.png" alt="Your profile">
+      <p><?php echo $_SESSION['username']; ?></p>
+      <p><?php echo $_SESSION['usermail']; ?></p>
+    </div>
+    <ul>
+      <li>
+        <a href="../../dashboard.php">Dashboard</a>
+      </li>
+      <li>
+        <a href="edit_profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
+      </li>
+      <li>
+        <a href="logout.php">Logout</a></li>
+          <li>
+				<a href="#">About</a>
+				<ul>
+					<li><a href="#">Our Story</a></li>
+					<li><a href="#">Meet the Team</a></li>
+				</ul>
+			</li>
+    </ul>
+    <?php if ($_SESSION['role'] === 'admin'): ?>
+        <a href="delete_user.php">Delete</a>
+        <a href="add_user.php">Add User</a>
+        <a href="user_accounts.php">User Accounts</a>
+    <?php endif; ?>
+  </nav>
+
+  <main class="content">
+    <div class="pagecontent">
+
     <h2>Edit User Info</h2>
     <form method="POST">
         <label for="usern">Username:</label><br>
@@ -76,6 +113,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="email" id="usermail" name="usermail" value="<?php echo $row['usermail']; ?>"><br>
         <input type="submit" value="Save Changes">
     </form>
+
+    </div>
+  </main>
+
+
+
+
+
+
+    
 </body>
 
 </html>
